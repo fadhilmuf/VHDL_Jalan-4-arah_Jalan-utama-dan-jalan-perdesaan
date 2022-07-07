@@ -1,11 +1,11 @@
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
--- Testbench VHDL code for traffic light controller 
+
 ENTITY tb_TF IS
 END tb_TF;
 
 ARCHITECTURE behavior OF tb_TF IS 
-    -- Component Declaration for the traffic light controller 
+
     COMPONENT TF
     PORT(
          sensor : IN  std_logic;
@@ -18,12 +18,12 @@ ARCHITECTURE behavior OF tb_TF IS
    signal sensor : std_logic := '0';
    signal clk : std_logic := '0';
    signal rst_n : std_logic := '0';
-  --Outputs
+  
    signal A : std_logic_vector(2 downto 0);
    signal B : std_logic_vector(2 downto 0);
    constant clk_period : time := 10 ns;
 BEGIN
- -- Instantiate the traffic light controller 
+
    trafficlightcontroller : TF PORT MAP (
           sensor => sensor,
           clk => clk,
@@ -31,7 +31,7 @@ BEGIN
           A => A,
           B => B
         );
-   -- Clock process definitions
+
    clk_process :process
    begin
   clk <= '0';
