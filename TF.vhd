@@ -3,12 +3,12 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;  
 
 entity TF is
-port (  sensor  : in STD_LOGIC; -- Sensor kendaraan pada jalan perdesaan
-		  s		 : in STD_LOGIC;
+port (  sensor   : in STD_LOGIC; -- Sensor kendaraan pada jalan perdesaan
+	s	 : in STD_LOGIC;
         clk  	 : in STD_LOGIC;
         rst_n	 : in STD_LOGIC;
-        A  		 : out STD_LOGIC_VECTOR(2 downto 0); -- Jalan Utama
-		  B		 : out STD_LOGIC_VECTOR(2 downto 0) -- Jalan Perdesaan
+        A  	 : out STD_LOGIC_VECTOR(2 downto 0); -- Jalan Utama
+	B	 : out STD_LOGIC_VECTOR(2 downto 0) -- Jalan Perdesaan
    );
 end TF;
 architecture behavior of TF is
@@ -151,10 +151,9 @@ process(clk)
 begin
 if(rising_edge(clk)) then 
  counter_1s <= counter_1s + x"0000001";
- if(counter_1s >= x"0000003") then
- 
-  counter_1s <= x"0000000";
- end if;
+if(counter_1s >= x"0000003") then
+ counter_1s <= x"0000000";
+end if;
 end if;
 end process;
 clk_1s_enable <= '1' when counter_1s = x"0003" else '0';
